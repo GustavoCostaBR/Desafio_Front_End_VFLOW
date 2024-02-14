@@ -660,6 +660,7 @@
 
 .fluig-style-guide .fluigicon-trash:before {
 	content: url('../assets/fluigicon-trash.png');
+	width: 100%;
 }
 
 .fluig-style-guide .fluigicon-search:before {
