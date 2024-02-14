@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulário de cadastro de fornecedores e produtos</title>
-	<link rel="stylesheet" type="text/css" href="https://fluig.totvs.com/style-guide/css/fluig-style-guide.min.css">
-	<!-- <script src="scripts/script.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+
 	<!-- <script src="/portal/resources/js/jquery/jquery.js"></script>
 	<script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
 	<script src="/portal/resources/js/mustache/mustache-min.js"></script>
@@ -62,7 +62,7 @@
 							<!-- Fiz a validação final pelo javascript, estava encontrando problemas com o event listener funcionando ao mesmo tempo que a validação html -->
 							<input class="form-control" type="text" id="cep" pattern="[0-9]{5}-[0-9]{3}" maxlength="9"
 								minlength="9" required>
-							<p id="cepError" class="help-block">Informe um cep válido com 8 dígitos numéricos!</p>
+							<p id="cepError" class="help-block" style="display: none;" >Informe um cep válido com 8 dígitos numéricos!</p>
 						</div>
 					</div>
 					<div class="col-md-5 col-md-offset-2">
@@ -141,6 +141,12 @@
 						</div>
 					</div>
 				</div>
+
+
+
+				<button id="deleteButton" onclick="deleteItem()">
+					<i class="fluigicon fluigicon-trash icon-xl" aria-hidden="true"></i>
+				</button>
 
 
 				<button type="submit" class="btn btn-default">Submit</button>
