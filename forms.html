@@ -5,11 +5,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulário de cadastro de fornecedores e produtos</title>
-	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
-	<script src="/portal/resources/js/jquery/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://fluig.totvs.com/style-guide/css/fluig-style-guide.min.css">
+	<!-- <script src="scripts/script.js"></script> -->
+	<!-- <script src="/portal/resources/js/jquery/jquery.js"></script>
 	<script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
 	<script src="/portal/resources/js/mustache/mustache-min.js"></script>
-	<script src="/style-guide/js/fluig-style-guide.min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide.min.js"></script> -->
 </head>
 
 
@@ -17,13 +18,138 @@
 	<div class="fluig-style-guide">
 		<h1>CADASTRO FORNECEDOR/PRODUTO</h1>
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">Dados do Fornecedor</div>
-			</div>
+			<form id="myForm" role="form">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Dados do Fornecedor</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<label>Razão Social</label>
+							<input type="text" class="form-control" required>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label>CNPJ</label>
+							<input class="form-control" type="text" id="cnpj" pattern="\d{2}\.\d{3}\.\d{3}/0001-\d{2}"
+								maxlength="18" required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<label>Nome Fantasia</label>
+							<input type="text" class="form-control" required>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label>Inscrição Estadual</label>
+							<!-- Achei modelos diferentes para inscrição estadual, preferi não limitar, pois parece que cada estado aceita um formato diferente -->
+							<input class="form-control" type="text" id="inscricao">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group has-error">
+							<label>CEP</label>
+							<!-- Fiz a validação final pelo javascript, estava encontrando problemas com o event listener funcionando ao mesmo tempo que a validação html -->
+							<input class="form-control" type="text" id="cep" pattern="[0-9]{5}-[0-9]{3}" maxlength="9"
+								minlength="9" required>
+							<p id="cepError" class="help-block">Informe um cep válido com 8 dígitos numéricos!</p>
+						</div>
+					</div>
+					<div class="col-md-5 col-md-offset-2">
+						<div class="form-group">
+							<label>Inscrição Municipal</label>
+							<!-- Achei modelos diferentes para inscrição municipal, preferi não limitar, pois parece que cada município aceita um formato diferente-->
+							<input class="form-control" type="text" id="inscricao">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<label>Endereço</label>
+							<input id="endereco" class="form-control" type="text" id="endereço" readonly>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label>Número</label>
+							<input id="numero" class="form-control" type="text" id="inscricao" required>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Complemento</label>
+							<input id="complemento" class="form-control" type="text" id="complemento" required>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<label>Bairro</label>
+							<input id="bairro" class="form-control" type="text" readonly>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label>Município</label>
+							<input id="municipio" class="form-control" type="text" readonly>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label>Estado</label>
+							<input id="estado" class="form-control" type="text" readonly>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Nome da Pessoa de Contato</label>
+							<input class="form-control" type="text" required>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label>Telefone</label>
+							<input class="form-control" type="tel" minlength="9" required pattern="^\d+$">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label>E-mail</label>
+							<input class="form-control" type="email" id="complemento" required>
+						</div>
+					</div>
+				</div>
+
+
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
 		</div>
 	</div>
 
 
+	<script src="scripts/script.js" defer></script>
 </body>
 
 </html>
